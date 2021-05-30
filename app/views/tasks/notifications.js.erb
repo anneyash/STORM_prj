@@ -1,0 +1,15 @@
+<%if @three_day_tasks.any? %>
+$('body').append("<%=escape_javascript(render 'tasks/notification',  type: 3)%>")
+<%end%>
+<%if @one_day_tasks.any? %>
+$('body').append("<%=escape_javascript(render 'tasks/notification',  type: 1)%>")
+<%end%>
+<%if @week_tasks.any? %>
+$('body').append("<%=escape_javascript(render 'tasks/notification',  type: 7)%>")
+<%end%>
+<%if @week.any? %>
+$('body').append("<%=escape_javascript(render 'tasks/notification',  type: 77)%>")
+<%end%>
+<%if @day.any? %>
+$('body').append("<%=escape_javascript(render 'tasks/notification',  type: 71)%>")
+<%end%>

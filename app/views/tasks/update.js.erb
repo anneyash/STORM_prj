@@ -1,0 +1,2 @@
+M.toast({html: 'Изменения сохранены', classes: 'rounded'})
+$('#task-data-<%=@task.id%>').html('<%=escape_javascript(render 'tasks/task_card_data', task: @task)%>')

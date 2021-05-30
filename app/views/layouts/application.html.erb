@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Storm</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  </head>
+
+<%= render "layouts/navbar" %>
+
+  <script>
+      $(document).on('turbolinks:load', function() {
+          Waves.displayEffect();
+           $('.dropdown-trigger').dropdown();
+      });
+  </script>
+
+  <body>
+
+    <%= yield %>
+  </body>
+</html>
+
+<script type="text/javascript">
+
+  function makealltodo(ids, type){
+
+    $.ajax({
+          url: '/tasks/makealltodo', type: 'post', data: {ids: ids, type: type}, dataType: 'script'
+        })
+    }
+
+    function makealltoday(ids, type){
+
+      $.ajax({
+            url: '/tasks/makealltoday', type: 'post', data: {ids: ids, type: type}, dataType: 'script'
+          })
+      }
+
+ $(document).on('turbolinks:load', function() {
+   <% if signed_in_user?%>
+      getNotificationCookie();
+  <% end %>
+})
+
+  function getNotificationCookie() {
+      var myCookie = getCookie("notifications");
+
+      if (myCookie == null) {
+        var expires = new Date();
+            expires.setHours(23,59,59,999);
+          document.cookie = "notifications=true; expires=" + expires.toUTCString();
+          $.ajax({ url: '/tasks/notifications', type: 'get' })
+      }
+
+}
+  function getCookie(name) {
+      var dc = document.cookie;
+      var prefix = name + "=";
+      var begin = dc.indexOf("; " + prefix);
+      if (begin == -1) {
+          begin = dc.indexOf(prefix);
+          if (begin != 0) return null;
+      }
+      else
+      {
+          begin += 2;
+          var end = document.cookie.indexOf(";", begin);
+          if (end == -1) {
+          end = dc.length;
+          }
+      }
+      // because unescape has been deprecated, replaced with decodeURI
+      //return unescape(dc.substring(begin + prefix.length, end));
+      return decodeURI(dc.substring(begin + prefix.length, end));
+  }
+
+
+function taskClick(id) {
+  $.ajax({
+        url: '/tasks/' + id, type: 'get'
+      })
+      .done(function(){})
+}
+
+function taskUpdateType(id) {
+
+var url = '/task/' + id + '/' + $('#task-select').val();
+
+
+  $.ajax({
+        url: url, type: 'get'
+      })
+      .done(function(){})
+}
+
+
+
+  function editTask(id){
+    $.ajax({
+          url: '/tasks/' + id + '/edit', type: 'get'
+        })
+        .done(function(){})
+  }
+
+  function onHoverTask(id) {
+      $('#task-' + id).css("background", "rgba(227, 225, 61, 0.15)")
+    }
+
+  function onOutTask(id) {
+        $('#task-' + id).css("background", "white")
+      }
+
+  function onHoverProject(id) {
+          $('#project-btns-' + id).show()
+          $('#project-card-' + id).css("background", "rgba(227, 225, 61, 0.52)")
+        }
+
+  function onOutProject(id) {
+            $('#project-btns-' + id).hide()
+            $('#project-card-' + id).css("background", "white")
+          }
+</script>

@@ -1,0 +1,24 @@
+<div class="input-field" style="">
+         <input id="edit-task-title" type="text" value="<%=@task.title%>" class="validate">
+         <label for="edit-task-title">Введите название задачи</label>
+       </div>
+       <div class="input-field" style="">
+                <input active id="edit-task-description" type="text" value="<%=@task.description%>" class="active">
+                <label for="edit-task-description">Введите описание задачи</label>
+              </div>
+              <div class="input-field" style="">
+                       <input id="edit-task-deadline" type="text" value="<%=@task.deadline? ? @task.deadline.strftime("%b %d, %Y") : ''%>" class="datepicker">
+                       <label for="edit-task-deadline" class="active">Выберите дедлайн</label>
+                     </div>
+                     <script>
+
+                     $(document).ready(function(){
+                         $('.datepicker').datepicker();
+                          var picker = M.Datepicker.getInstance(document.getElementById('edit-task-deadline'))
+                          picker.setDate('<%=@task.deadline%>');
+                          M.updateTextFields();
+                       });
+
+
+
+                     </script>

@@ -1,0 +1,24 @@
+<div id = "today-task-<%=task.id%>" style="box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+border-radius: 16px; padding: 24px; margin-bottom: 12px;">
+
+    <div style="font-size: 14px; color: rgba(134, 134, 134, 1);">
+      <%= task.project.title %>
+    </div>
+
+    <div style="font-weight: 600; font-size: 18px; margin-top: 18px;">
+      <%= task.title %>
+    </div>
+
+    <div style="font-size: 16px; color: rgba(134, 134, 134, 1); margin-top: 8px;">
+      <%= task.description %>
+    </div>
+
+    <div style="margin-top: 24px; ">
+      <button onclick="taskUpdateTypeToday(<%=task.id%>, 'done')" style="color: black;" class="btn waves-effect waves-dark yellow" type="submit" name="action">Готово
+      </button>
+       <a onclick="taskUpdateTypeToday(<%=task.id%>, 'todo')" class="waves-effect waves-dark btn-flat">Отложить на завтра</a>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,3 @@
+$('#task-<%=@task.id%>').remove()
+$('#view-task-<%=@task.id%>').remove()
+$('#today-tasks').prepend("<%=escape_javascript(render 'tasks/task', task: @task)%>")

@@ -1,0 +1,76 @@
+
+  <div class="container">
+  <div style="font-size: 34px; font-weight: 600; margin-top: 60px; margin-bottom: 24px;">Мои проекты</div>
+
+  <a style="z-index: 0;" id="new-project" onclick="$('#new-project-form').show();" class="waves-effect waves-yellow btn-flat">Новая доска<i class="material-icons left">add</i></a>
+
+  <%= render 'new_project'%>
+
+
+    <div class="row" id="projects-container" style="margin-top: 32px;">
+      <% current_user.projects.all.order('created_at DESC').each do |project| %>
+          <%= render 'projects/project', project: project %>
+      <% end %>
+    </div>
+</div>
+
+
+<div id="edit-project-form" style="position: fixed; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
+    justify-content: center;">
+
+  <div style="z-index: 1; border-radius: 32px; height: 515px; width:996px; background-color: white;  position: absolute; ">
+
+  <div style="display:flex; padding: 32px; aling-items: center; border-bottom: 1px solid #c5c5c5;">
+    <div style="flex-grow: 1; font-weight: 600; font-size: 18px;">Проект</div>
+     <div>
+       <a onclick="$('#edit-project-form').hide()" id="new-project" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
+     </div>
+  </div>
+
+  <div style="font-weight: 600; font-size: 24px; padding: 32px; ">
+    Название доски
+  </div>
+
+<div style="padding-left: 32px; padding-right: 32px;  ">
+    <div class="input-field" style="">
+             <input id="edit-title" type="text" value="" class="validate">
+             <label class='active' for="edit-title">Название доски</label>
+           </div>
+</div>
+
+
+<div style="padding-left: 32px;">
+  <button onclick="saveProject()" class="btn waves-effect waves-light yellow" style="color: #171717;" type="submit" name="action">
+    Сохранить изменения
+    </button>
+
+  <a id="new-project" class="waves-effect waves-yellow btn-flat">отмена</a>
+</div>
+  </div>
+</div>
+
+
+<script>
+$('#edit-project-form').hide();
+
+var project_id;
+
+  function editProject(id, title){
+    project_id = id;
+    $('#edit-title').val(title);
+    $('#edit-project-form').show();
+    M.updateTextFields();
+  }
+
+  function saveProject(){
+    var editTitle = $('#edit-title').val();
+
+    $.ajax({
+          url: '/projects/' + project_id, type: 'put', data: {project: {title: editTitle}}
+        })
+        .done(function(){ $('#edit-project-form').hide(); })
+
+    }
+
+
+</script>

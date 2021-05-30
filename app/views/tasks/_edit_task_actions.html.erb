@@ -1,0 +1,22 @@
+<div style="padding-left: 32px;">
+  <button onclick="updateTask(<%=task.id%>)" class=" btn-flat waves-effect waves-dark " style="color: #171717;" type="submit" name="action">
+    Сохранить изменения
+    </button>
+</div>
+
+<script>
+
+  function updateTask(){
+    var update_task_title = $('#edit-task-title').val();
+    var update_task_description = $('#edit-task-description').val();
+    var update_task_deadline = $('#edit-task-deadline').val();
+
+    $.ajax({
+          url: '<%= task_path(task) %>', type: 'put', data: {project_id: '<%=task.project.id%>', task: {title: update_task_title, description: update_task_description,  deadline: update_task_deadline}}
+        })
+        .done(function(){
+          $('#view-task-<%=task.id%>').remove()
+        });
+    }
+
+</script>

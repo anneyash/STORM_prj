@@ -1,0 +1,37 @@
+
+<div class="col s12 m12 l6 offset-l3">
+  <div class="card-panel white">
+
+    <%= form_for(:session, url: sessions_path, :html => { :id => "sessionForm"}) do |f| %>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input name="session[email]" id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+
+
+
+          <div class="input-field col s12">
+            <i class="material-icons prefix">vpn_key</i>
+            <input name="session[password]" id="password" type="password" class="validate">
+            <label for="password">Password</label>
+          </div>
+
+
+
+          <div class="col s12">
+            <a onclick="$('#sessionForm').submit()" class="waves-effect waves-teal btn"><i class="material-icons left">cloud</i>Sign in</a>
+            <a href="/signup" style="margin-left: 8px;" class="waves-effect waves-teal btn"><i class="material-icons left">language</i>Sign up</a>
+          </div>
+        </div>
+
+
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,8 @@
+$('#task-<%=@task.id%>').remove()
+$('#view-task-<%=@task.id%>').remove()
+$('#todo-tasks').prepend("<%= escape_javascript(render 'tasks/task', task: @task)%>")
+$('#today-task-<%=@task.id%>').remove()
+
+
+tasks_done = <%=@today_done%>
+tasks_todo = <%=@today_count%>

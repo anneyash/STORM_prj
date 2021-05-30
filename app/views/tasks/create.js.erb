@@ -1,0 +1,2 @@
+$('#<%=@task.task_state%>-tasks').prepend('<%= escape_javascript( render 'tasks/task', task: @task)%>');
+$('#new-task-form').hide();

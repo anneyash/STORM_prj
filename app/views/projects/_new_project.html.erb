@@ -1,0 +1,50 @@
+<div id="new-project-form" style="position: fixed; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
+    justify-content: center;">
+
+  <div style="z-index: 1; border-radius: 32px; height: 515px; width:996px; background-color: white;  position: absolute; ">
+
+  <div style="display:flex; padding: 32px; aling-items: center; border-bottom: 1px solid #c5c5c5;">
+    <div style="flex-grow: 1; font-weight: 600; font-size: 18px;">Новый проект</div>
+     <div>
+       <a onclick="$('#new-project-form').hide()" id="new-project" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
+     </div>
+  </div>
+
+  <div style="font-weight: 600; font-size: 24px; padding: 32px; ">
+    Название доски
+  </div>
+
+<div style="padding-left: 32px; padding-right: 32px;  ">
+    <div class="input-field" style="">
+             <input id="title" type="text" class="validate">
+             <label for="title">Введите название доски</label>
+           </div>
+</div>
+
+
+<div style="padding-left: 32px;">
+  <button onclick="createProject()" class="btn waves-effect waves-light yellow" style="color: #171717;" type="submit" name="action">
+    Создать
+    </button>
+
+  <a id="new-project" class="waves-effect waves-yellow btn-flat">отмена</a>
+</div>
+  </div>
+</div>
+
+
+<script>
+$('#new-project-form').hide();
+
+  function createProject(){
+    var title = $('#title').val();
+
+    $.ajax({
+          url: '<%= projects_path %>', type: 'post', data: {project: {title: title}}
+        })
+        .done(function(){})
+
+    }
+
+
+</script>

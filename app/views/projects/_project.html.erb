@@ -1,0 +1,29 @@
+
+<div  onmouseout="onOutProject(<%=project.id%>)" onmouseover="onHoverProject(<%=project.id%>)" id="project-<%=project.id%>" class="col s12 m6 l4 xl4" style="margin-bottom: 12px; padding: 0 6px; cursor: pointer;">
+  <a  style="color: unset; flex-grow: 1;" href="<%=project_path(project)%>">
+    <div  id="project-card-<%=project.id%>"  style=" background: white; border-radius: 8px;  height: 200px;  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);">
+
+      <div style="display: flex; flex-direction: column; height: 100%;">
+
+        <div id="project-title-<%=project.id%>" style=" overflow: hidden; text-overflow: ellipsis;flex-grow: 4; word-break: break-word; padding: 32px; font-weight: 600; font-size: 24px; line-height: 32.4px;">
+            <%= project.title%>
+        </div>
+
+
+        <div class="project-buttons" id="project-btns-<%=project.id%>" style="display: flex; justify-content:end; padding: 4px 4px 4px 4px;">
+            <a style="z-index:0;" id="edit-project-<%=project.id%>" onclick="editProject(<%=project.id%>, '<%=project.title%>')" class="waves-effect waves-dark btn-flat btn-flat-small"><i class="material-icons">edit</i></a>
+            <a style="z-index:0;" data-method="delete" data-remote="true" href="<%=project_path(project)%>" id="delete-project-<%=project.id%>" class="waves-effect waves-dark btn-flat btn-flat-small"><i class="material-icons">delete</i></a>
+        </div>
+    </div>
+
+
+    </div>
+
+</a>
+</div>
+
+<script type="text/javascript">
+
+$('.project-buttons').hide();
+
+</script>

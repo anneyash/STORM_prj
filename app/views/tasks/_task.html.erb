@@ -1,0 +1,8 @@
+<div onclick="taskClick(<%=task.id%>)" onmouseover="onHoverTask(<%=task.id%>)" onmouseout="onOutTask(<%=task.id%>)" id="task-<%=task.id%>" style="cursor: pointer; padding: 16px; margin-bottom: 16px; display: flex; flex-direction: column; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12); border-radius: 16px;">
+  <div style="font-size: 10px; color: rgba(130, 130, 130, 1); margin-bottom: 8px;">
+   <%=task.project.title%>
+  </div>
+  <div id='task-data-<%=task.id%>'>
+      <%= render 'tasks/task_card_data', task: task %>
+  </div>
+</div>

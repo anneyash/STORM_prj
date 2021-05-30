@@ -1,0 +1,67 @@
+<div id="new-task-form" style="position: fixed; z-index: 9; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
+    justify-content: center;">
+
+  <div style="z-index: 1; border-radius: 32px; height: 515px; width:996px; background-color: white;  position: absolute; ">
+
+  <div style="display:flex; padding: 32px; aling-items: center; border-bottom: 1px solid #c5c5c5;">
+    <div style="flex-grow: 1; font-weight: 600; font-size: 18px;">Новая задача</div>
+     <div>
+       <a onclick="$('#new-task-form').hide()" id="new-task" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
+     </div>
+  </div>
+
+  <div style="font-weight: 600; font-size: 24px; padding: 32px; ">
+    Название задачи
+  </div>
+
+<div style="padding-left: 32px; padding-right: 32px;  ">
+    <div class="input-field" style="">
+             <input id="task-title" type="text" class="validate">
+             <label for="task-title">Введите название задачи</label>
+           </div>
+           <div class="input-field" style="">
+                    <input id="task-description" type="text" class="validate">
+                    <label for="task-description">Введите описание задачи</label>
+                  </div>
+                  <div class="input-field" style="">
+                           <input id="task-deadline" type="text" class="datepicker">
+                           <label for="task-deadline" class="active">Выберите дедлайн</label>
+                         </div>
+
+                         <input id="task-state" type="text" style="display: none;">
+</div>
+
+
+<div style="padding-left: 32px;">
+  <button onclick="createTask()" class="btn waves-effect waves-light yellow" style="color: #171717;" type="submit" name="action">
+    Создать
+    </button>
+
+  <a onclick="$('#new-task-form').hide()" class="waves-effect waves-yellow btn-flat">отмена</a>
+</div>
+  </div>
+</div>
+
+
+<script>
+$('#new-task-form').hide();
+
+$(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
+
+  function createTask(){
+    var title = $('#task-title').val();
+    var description = $('#task-description').val();
+    var deadline = $('#task-deadline').val();
+    var task_state = $('#task-state').val();
+
+    $.ajax({
+          url: '<%= tasks_path %>', type: 'post', data: {project_id: '<%=@project.id%>', task: {title: title, description: description, task_state: task_state, deadline: deadline}}
+        })
+        .done(function(){})
+
+    }
+
+
+</script>

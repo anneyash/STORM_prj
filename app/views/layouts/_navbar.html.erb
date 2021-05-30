@@ -1,0 +1,25 @@
+<div class="navbar-fixed">
+<nav>
+   <div class="nav-wrapper" style="display:flex;">
+
+     <a href="<%=root_path%>" class="brand-logo"><img src="<%=image_url('logo.svg')%>" alt=""></a>
+
+     <ul  style="flex-grow: 1; margin-left: 48px; " id="nav-mobile" class="hide-on-med-and-down">
+       <li class="<%= current_page?(projects_path)  ? "active" : ""%>" ><a href="<%=projects_path%>">Доски</a></li>
+       <li class="<%= current_page?(tasks_path)  ? "active" : ""%>"><a href="<%=tasks_path%>">Все задачи</a></li>
+       <li class="<%= current_page?(tasks_today_path)  ? "active" : ""%>"><a href="<%=tasks_today_path%>">Сегодня</a></li>
+     </ul>
+
+     <ul id="nav-mobile" class=" right hide-on-med-and-down">
+       <% if signed_in_user? %>
+       <li class="<%= current_page?(points_path)  ? "active" : ""%>" ><a style="display:flex; align-items: center;" href="<%=points_path%>">Бонусы</a></li>
+       <li class="" ><a style="display:flex; align-items: center;" href="<%=user_path(current_user)%>"><i style="height: auto; line-height: 24px; margin-right: 8px; color: #292929;" class="material-icons">account_circle</i><%=current_user.name%></a></li>
+       <% else %>
+       <li><a class="waves-effect waves-light" href="/signin">Войти</a></li>
+       <li><a href="/signup">Создать аккаунт</a></li>
+       <% end %>
+     </ul>
+  </div>
+
+ </nav>
+</div>

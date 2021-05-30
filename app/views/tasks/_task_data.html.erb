@@ -1,0 +1,13 @@
+<div style="font-weight: 600; font-size: 24px;">
+  <%=task.title%>
+</div>
+<div style="font-size: 10px; color: rgba(130, 130, 130, 1); margin-bottom: 8px;">
+ <%=task.project.title%>
+</div>
+<div style="font-size: 16px;">
+  <%=task.description%>
+</div>
+<% if !task.deadline.nil?%>
+<div style="font-size: 10px; margin-top: 20px; color: rgba(130, 130, 130, 1); display: flex;
+  align-items: center;"><i style="font-size: 10px; margin-right: 8px;" class="material-icons">schedule</i><%=task.deadline.strftime("%b %d, %Y")%></div>
+<% end %>
