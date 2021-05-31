@@ -32,21 +32,21 @@
     Сделать сегодня
     </button>
 
-  <a onclick="$('notification-<%=type%>').remove()"class="waves-effect waves-yellow btn-flat">Я помню</a>
+  <a onclick="$('#notification-<%=type%>').remove()"class="waves-effect waves-yellow btn-flat">Я помню</a>
   <% end %>
   <% if type == 1%>
   <button onclick="makealltoday(<%=@one_day_tasks.pluck(:id)%>, <%=type%>)" class="btn waves-effect waves-light yellow" style="color: #171717;" type="submit" name="action">
     Сделать сегодня
     </button>
 
-  <a onclick="$('notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Я помню</a>
+  <a onclick="$('#notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Я помню</a>
   <% end %>
   <% if type == 7%>
   <button onclick="makealltoday(<%=@week_tasks.pluck(:id)%>, <%=type%>)" class="btn waves-effect waves-light yellow" style="color: #171717;" type="submit" name="action">
     Сделать сегодня
     </button>
 
-  <a onclick="$('notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Я помню</a>
+  <a onclick="$('#notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Я помню</a>
   <% end %>
   <% if type == 71%>
   <button onclick="makealltoday(<%=@day.pluck(:id)%>, <%=type%>)" class="btn waves-effect waves-light yellow" style="color: #171717;" type="submit" name="action">
@@ -60,7 +60,7 @@
     Перенести в сделать
     </button>
 
-  <a onclick="$('notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Оставить все как есть</a>
+  <a onclick="$('#notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Оставить все как есть</a>
   <%end%>
 
 
