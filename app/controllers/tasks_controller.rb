@@ -12,8 +12,8 @@ class TasksController < ApplicationController
 
   def today
 
-    @today_count = Task.today.count
-    @today_done = Task.done.where('today_at > ? AND today_at < ?', Date.today - 1.day, Date.today + 1.day).count
+    @today_count = current_user.tasks.today.count
+    @today_done = current_user.tasks.done.where('today_at > ? AND today_at < ?', Date.today - 1.day, Date.today + 1.day).count
 
   end
 
@@ -47,8 +47,8 @@ class TasksController < ApplicationController
     @task.todo!
     @task.points.destroy_all
 
-    @today_count = Task.today.count
-    @today_done = Task.done.where('today_at > ? AND today_at < ?', Date.today - 1.day, Date.today + 1.day).count
+    @today_count = current_user.tasks.today.count
+    @today_done = current_user.tasks.done.where('today_at > ? AND today_at < ?', Date.today - 1.day, Date.today + 1.day).count
   end
 
   def make_today
@@ -69,8 +69,8 @@ class TasksController < ApplicationController
     @task.done!
     @task.update_attribute(:today_at, Date.today)
 
-    @today_count = Task.today.count
-    @today_done = Task.done.where('today_at > ? AND today_at < ?', Date.today - 1.day, Date.today + 1.day).count
+    @today_count = current_user.tasks.today.count
+    @today_done = current_user.tasks.done.where('today_at > ? AND today_at < ?', Date.today - 1.day, Date.today + 1.day).count
 
     if current_user.tasks.done.count == 1
       @task.points.create(quantity: 1, user: current_user)

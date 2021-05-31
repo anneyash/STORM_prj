@@ -1,4 +1,5 @@
 <div class="container">
-
+  <%if signed_in_user?%>
       <%= render 'tasks/tasks', project: false%>
+    <%end%>
 </div>

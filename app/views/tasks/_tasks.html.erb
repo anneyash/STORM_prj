@@ -41,25 +41,25 @@
 
 <div class="col m3 s3" style="display: flex; flex-direction: column;">
   <div style="margin-top: 16px;" id="todo-tasks">
-    <%= render :partial => "tasks/task", :collection => @project ? @project.tasks.all.todo.order('created_at DESC') : Task.all.todo.order('created_at DESC'), :as => :task %>
+    <%= render :partial => "tasks/task", :collection => @project ? @project.tasks.all.todo.order('created_at DESC') : current_user.tasks.all.todo.order('created_at DESC'), :as => :task %>
   </div>
 </div>
 
 <div class="col m3 s3">
   <div style="margin-top: 16px;" id = "today-tasks">
-    <%= render :partial => "tasks/task", :collection =>  @project ? @project.tasks.all.today.order('created_at DESC') : Task.all.today.order('created_at DESC'), :as => :task %>
+    <%= render :partial => "tasks/task", :collection =>  @project ? @project.tasks.all.today.order('created_at DESC') : current_user.tasks.all.today.order('created_at DESC'), :as => :task %>
   </div>
 </div>
 
 <div class="col m3 s3">
   <div style="margin-top: 16px;" id = "in_process-tasks">
-    <%= render :partial => "tasks/task", :collection =>  @project ? @project.tasks.all.in_process.order('created_at DESC') : Task.all.in_process.order('created_at DESC'), :as => :task %>
+    <%= render :partial => "tasks/task", :collection =>  @project ? @project.tasks.all.in_process.order('created_at DESC') : current_user.tasks.all.in_process.order('created_at DESC'), :as => :task %>
   </div>
 </div>
 
 <div class="col m3 s3">
   <div style="margin-top: 16px;" id = "done-tasks">
-    <%= render :partial => "tasks/task", :collection => @project ?  @project.tasks.all.done.order('created_at DESC') : Task.all.done.order('created_at DESC'), :as => :task %>
+    <%= render :partial => "tasks/task", :collection => @project ?  @project.tasks.all.done.order('created_at DESC') : current_user.tasks.all.done.order('created_at DESC'), :as => :task %>
   </div>
 </div>
 </div>

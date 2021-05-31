@@ -4,7 +4,7 @@
 <div class="row" style="display: flex; flex-direction: row">
 
   <div class="col m7"  id="today-tasks" style="display: flex; flex-direction: column;">
-    <%= render :partial => 'tasks/today_task', :collection => Task.today.order('created_at DESC'), :as => :task %>
+    <%= render :partial => 'tasks/today_task', :collection => current_user.tasks.today.order('created_at DESC'), :as => :task %>
   </div>
 
   <div class="col m5" id="stats-bar" style="display: flex; margin-left: 24px; font-size: 24px;">

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
     resources :projects, only: [:create, :destroy, :index, :update, :show]
     resources :points, only: [:index]
-    resources :users, only: [:show]
+    resources :users, only: [:show, :create]
     resources :tasks, only: [:create, :destroy, :index, :show, :edit, :update] do
       get :today
     end

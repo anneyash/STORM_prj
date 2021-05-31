@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   after_action :user_activity, :check_yesterday_tasks
+  before_action :signed_in_user
 
   def user_activity
     if signed_in_user?

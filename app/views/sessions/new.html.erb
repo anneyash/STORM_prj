@@ -1,19 +1,17 @@
-
-<div class="col s12 m12 l6 offset-l3">
-  <div class="card-panel white">
-
+<div style="position: absolute; top:64px; bottom:0; left:0; right:0; display: flex; align-items: center;">
+<div class="row">
+  <div class="col s8 m6 l6 offset-l3 offset-m3 offset-s2">
     <%= form_for(:session, url: sessions_path, :html => { :id => "sessionForm"}) do |f| %>
-        <div class="row">
-          <div class="input-field col s12">
-            <i class="material-icons prefix">email</i>
+
+          <div class="input-field col s12 m12 l12">
+
             <input name="session[email]" id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
 
 
+          <div class="input-field col s12 m12 l12">
 
-          <div class="input-field col s12">
-            <i class="material-icons prefix">vpn_key</i>
             <input name="session[password]" id="password" type="password" class="validate">
             <label for="password">Password</label>
           </div>
@@ -21,17 +19,13 @@
 
 
           <div class="col s12">
-            <a onclick="$('#sessionForm').submit()" class="waves-effect waves-teal btn"><i class="material-icons left">cloud</i>Sign in</a>
-            <a href="/signup" style="margin-left: 8px;" class="waves-effect waves-teal btn"><i class="material-icons left">language</i>Sign up</a>
+            <a onclick="$('#sessionForm').submit()" class="waves-effect waves-dark btn-flat"><i class="material-icons left">login</i>Войти</a>
+            <a href="/signup" style="margin-left: 8px;" class="waves-effect waves-dark btn-flat"><i class="material-icons left">person_add</i>Создать аккаунт</a>
           </div>
-        </div>
+
 
 
     <% end %>
   </div>
 </div>
-
-
-
-
-
+</div>
