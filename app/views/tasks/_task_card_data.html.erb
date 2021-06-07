@@ -1,5 +1,6 @@
 <div style="font-size: 16px; word-break: break-word;"><%=task.description%></div>
 <% if !task.deadline.nil?%>
-<div style="font-size: 10px; margin-top: 20px; color: rgba(130, 130, 130, 1); display: flex;
-  align-items: center;"><i style="font-size: 10px; margin-right: 8px;" class="material-icons">schedule</i><%=task.deadline.strftime("%b %d, %Y")%></div>
+<div style="font-size: 10px; margin-top: 16px; color: rgba(130, 130, 130, 1); display: flex;
+  align-items: center;"><i style="font-size: 10px; margin-right: 8px;" class="material-icons">schedule</i><%=task.deadline.strftime("%b %d, %Y")%>
+</div>
 <% end %>

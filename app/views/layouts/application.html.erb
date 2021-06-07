@@ -102,8 +102,6 @@ var url = '/task/' + id + '/' + $('#task-select').val();
       .done(function(){})
 }
 
-
-
   function editTask(id){
     $.ajax({
           url: '/tasks/' + id + '/edit', type: 'get'
@@ -112,7 +110,7 @@ var url = '/task/' + id + '/' + $('#task-select').val();
   }
 
   function onHoverTask(id) {
-      $('#task-' + id).css("background", "rgba(227, 225, 61, 0.15)")
+      $('#task-' + id).css("background", "rgba(0, 0, 0, 0.04)")
     }
 
   function onOutTask(id) {

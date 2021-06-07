@@ -15,9 +15,87 @@
  *= require_self
  */
 
+.turbolinks-progress-bar { height: 5px; background-color: #E3E13D; }
+
+.popup {
+  position: fixed; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
+      justify-content: center;
+}
+
+.notification-card .title {
+  font-weight: 600; font-size: 18px;
+}
+
+.notification-card {
+  z-index: 1; border-radius: 32px; background-color: white; padding: 32px; margin-right: 16px; width: 640px;
+    margin-left: 16px;
+}
+
+.notification {
+  position: fixed; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
+      justify-content: center;
+}
+
+ .task-data-title {
+   font-weight: 600; font-size: 24px;
+ }
+
+ .task-data-project-title {
+   font-size: 10px; color: rgba(130, 130, 130, 1); margin-bottom: 8px;
+ }
+ .task-data-description {
+   font-size: 16px;
+ }
+ .task-data-deadline {
+   font-size: 10px; margin-top: 16px; color: rgba(130, 130, 130, 1); display: flex;
+     align-items: center;
+ }
+
+.task-card-title {
+  font-size: 10px; color: rgba(130, 130, 130, 1); margin-bottom: 8px;
+}
+
+.task-card {
+  cursor: pointer;
+   padding: 18px 16px 24px;
+    margin-bottom: 16px;
+     display: flex;
+      flex-direction: column;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.12);
+      border-radius: 16px;
+}
+
  .yellow {
      background-color: #E3E13D !important;
+     border-radius: 28px;
+     box-shadow: none;
+     text-transform: none;
    }
+
+   .yellow:hover {
+     box-shadow: none;
+   }
+
+.btn, .btn-flat {
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.btn-flat-grey {
+  background: rgba(0, 0, 0, 0.02);
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.btn-flat-notification {
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 600;
+  width: 100%;
+}
 
 .btn-flat-small {
   padding: 0 8px !important;
@@ -64,7 +142,6 @@ nav ul a:hover {
  li.active {
   background-color: #E3E13D !important;
   border-radius: 8px;
-
 }
 
 #bonus {

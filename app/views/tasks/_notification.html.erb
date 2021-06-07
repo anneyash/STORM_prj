@@ -1,12 +1,8 @@
-<div id="notification-<%=type%>" style="position: fixed; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
-    justify-content: center;">
+<div id="notification-<%=type%>" class="notification">
 
-  <div style="z-index: 1; border-radius: 32px; background-color: white; padding: 32px; margin-right: 16px;
-    margin-left: 16px; ">
+  <div class="notification-card">
 
-
-
-  <div style="font-weight: 600; font-size: 18px;">
+  <div class="title">
     <% if type == 3%>
       Вдруг ты забыл, до дедлайна <%= @three_day_tasks.count > 1 ? "задач" : "задачи" %> “<%=@three_day_tasks_titles%>” осталась 3 дня. Хочешь приступить к выполнению сегодня?
     <% end %>
@@ -20,7 +16,7 @@
       Ты кое-что забыл тут вчера. Хочешь продолжить выполнять задачи cегодня?
     <%end%>
     <% if type == 77%>
-      Привет, давно не виделись! Накопилось много неактуных задач.
+      Привет, давно не виделись! Накопилось много неактуальных задач.
     <%end%>
   </div>
 
@@ -62,7 +58,6 @@
 
   <a onclick="$('#notification-<%=type%>').remove()" class="waves-effect waves-yellow btn-flat">Оставить все как есть</a>
   <%end%>
-
 
 </div>
   </div>

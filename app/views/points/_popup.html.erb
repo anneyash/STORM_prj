@@ -1,7 +1,6 @@
-<div id="points-popup" style="position: fixed; display: flex; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.2); align-items: center;
-    justify-content: center;">
+<div id="points-popup" class="popup">
 
-  <div style="z-index: 1; height: auto; width:50%; background-color: white;  position: absolute;">
+  <div style="z-index: 1; height: auto; width:640px; background-color: white;  position: absolute;">
 
     <div style=" padding-top: 16px; padding-right: 8px; display: flex; justify-content: flex-end;">
       <a onclick="$('#points-popup').remove()" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
@@ -10,13 +9,11 @@
   <div style="font-weight: 600; font-size: 18px; padding-bottom: 12px; ">
     <%=text%>
   </div>
-
 <div>
   <div style="display: flex; justify-content: flex-end; background-image: url('<%=image_url('bonus-star.svg')%>'); height: 64px; width: 64px; background-size: contain; background-image: center; background-repeat: no-repeat;">
       <div style="align-self: flex-end; font-size: 16px; font-weight: 600;">+<%=points%></div>
   </div>
 </div>
-
 
     <div style=" padding-top: 32px;">
       <a href="<%= points_path %>" class="waves-effect waves-yellow btn-flat">Смотреть доступные баллы</a>

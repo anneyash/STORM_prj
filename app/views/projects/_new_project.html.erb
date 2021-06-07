@@ -4,7 +4,7 @@
   <div style="z-index: 1; border-radius: 32px; height: 515px; width:996px; background-color: white;  position: absolute; ">
 
   <div style="display:flex; padding: 32px; aling-items: center; border-bottom: 1px solid #c5c5c5;">
-    <div style="flex-grow: 1; font-weight: 600; font-size: 18px;">Новый проект</div>
+    <div style="flex-grow: 1; font-weight: 600; font-size: 18px; align-self: center;">Новый проект</div>
      <div>
        <a onclick="$('#new-project-form').hide()" id="new-project" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
      </div>
@@ -27,7 +27,7 @@
     Создать
     </button>
 
-  <a id="new-project" class="waves-effect waves-yellow btn-flat">отмена</a>
+  <a id="new-project" class="waves-effect waves-yellow btn-flat">Отмена</a>
 </div>
   </div>
 </div>
@@ -42,7 +42,7 @@ $('#new-project-form').hide();
     $.ajax({
           url: '<%= projects_path %>', type: 'post', data: {project: {title: title}}
         })
-        .done(function(){})
+        .done(function(){ $('#title').val(""); M.updateTextFields(); })
 
     }
 

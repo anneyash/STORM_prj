@@ -1,5 +1,6 @@
 <div class="container">
-  <h1>Сегодня</h1>
+  <div style="font-weight: bold;
+font-size: 52px; line-height: 150%; padding-bottom: 32px; padding-top: 58px;">Сегодня</div>
 
 <div class="row" style="display: flex; flex-direction: row">
 
@@ -50,7 +51,11 @@
          legend: 'none',
          pieSliceText: 'value',
          titleTextStyle: { fontSize: 18,
-                              bold: true }
+                              bold: true },
+        slices: {
+            0: { color: '#6673FF' },
+            1: { color: '#DADADA' }
+          }
        };
 
        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

@@ -18,19 +18,19 @@
 <div class=" col m12 s12 l12 xl12">
   <% if @project %>
     <div class="col m3 s3">
-        <a style="z-index: 0;" onclick="showNewTaskForm('<%=Task.task_states.keys.first%>')" id="" class="waves-effect waves-yellow btn-flat">Новая задача <i class="material-icons left">add</i></a>
+        <a style="z-index: 0;" onclick="showNewTaskForm('<%=Task.task_states.keys.first%>')" id="" class="waves-effect waves-yellow btn-flat  btn-flat-grey">Новая задача <i class="material-icons left">add</i></a>
     </div>
   <% end %>
 
 <% if @project %>
   <div class="col m3 s3">
-    <a style="z-index: 0;" onclick="showNewTaskForm('<%=Task.task_states.keys.second%>')" id="" class="waves-effect waves-yellow btn-flat">Новая задача <i class="material-icons left">add</i></a>
+    <a style="z-index: 0;" onclick="showNewTaskForm('<%=Task.task_states.keys.second%>')" id="" class="waves-effect waves-yellow btn-flat  btn-flat-grey">Новая задача <i class="material-icons left">add</i></a>
   </div>
 <% end %>
 
 <% if @project %>
   <div class="col m3 s3">
-    <a style="z-index: 0;" onclick="showNewTaskForm('<%=Task.task_states.keys.third%>')" id="" class="waves-effect waves-yellow btn-flat">Новая задача <i class="material-icons left">add</i></a>
+    <a style="z-index: 0;" onclick="showNewTaskForm('<%=Task.task_states.keys.third%>')" id="" class="waves-effect waves-yellow btn-flat btn-flat-grey">Новая задача <i class="material-icons left">add</i></a>
   </div>
 <% end %>
 
@@ -46,7 +46,7 @@
 </div>
 
 <div class="col m3 s3">
-  <div style="margin-top: 16px;" id = "today-tasks">
+  <div style="margin-top: 16px;" id = "today-tasks" ondragover="allowDrop(event)" ondrop="drop(event)">
     <%= render :partial => "tasks/task", :collection =>  @project ? @project.tasks.all.today.order('created_at DESC') : current_user.tasks.all.today.order('created_at DESC'), :as => :task %>
   </div>
 </div>
@@ -63,7 +63,22 @@
   </div>
 </div>
 </div>
+
 <script type="text/javascript">
+  function allowDrop(ev) {
+    ev.preventDefault();
+  }
+
+  function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
 function showNewTaskForm(type) {
 $('#new-task-form').show()
 $('#task-state').val(type)

@@ -13,7 +13,7 @@
      <ul id="nav-mobile" class=" right hide-on-med-and-down">
        <% if signed_in_user? %>
        <li class="<%= current_page?(points_path)  ? "active" : ""%>" ><a style="display:flex; align-items: center;" href="<%=points_path%>">Бонусы</a></li>
-       <li class="" ><a style="display:flex; align-items: center;" href="<%=user_path(current_user)%>"><i style="height: auto; line-height: 24px; margin-right: 8px; color: #292929;" class="material-icons">account_circle</i><%=current_user.name%></a></li>
+       <li class="" ><a style="display:flex; align-items: center;" href="<%=user_path(current_user)%>"><img style="margin:0; width: 32px; border-radius: 50%;" src="<%=image_url('avatar.jpg')%>" alt=""></a></li>
        <% else %>
        <li><a class="waves-effect waves-light" href="/signin">Войти</a></li>
        <li><a href="/signup">Создать аккаунт</a></li>

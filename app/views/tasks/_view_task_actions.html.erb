@@ -1,6 +1,6 @@
 <% if task.today? || task.in_process?%>
 <div style="padding-left: 32px;">
-  <button onclick="createTask()" class=" btn-flat waves-effect waves-dark " style="color: #171717;" type="submit" name="action">
+  <button onclick="createTask()" class=" btn-flat yellow waves-effect waves-dark " style="color: #171717;" type="submit" name="action">
     Отметить как готово
     </button>
 
@@ -12,7 +12,7 @@
 
 <% if task.todo? %>
 <div style="padding-left: 32px;">
-  <button onclick="createTask()" class="btn-flat waves-effect waves-dark " style="color: #171717;" type="submit" name="action">
+  <button onclick="createTask()" class="btn-flat yellow waves-effect waves-dark " style="color: #171717;" type="submit" name="action">
     Выполнить сегодня
     </button>
 
