@@ -31,6 +31,12 @@
 
 <script type="text/javascript">
 
+
+  function closeTask(id){
+    $('#view-task-' + id).remove()
+
+  }
+
   function makealltodo(ids, type){
 
     $.ajax({
@@ -87,6 +93,27 @@
 function taskClick(id) {
   $.ajax({
         url: '/tasks/' + id, type: 'get'
+      })
+      .done(function(){})
+}
+
+function makeToday(id) {
+  $.ajax({
+        url: '/task/' + id + '/today', type: 'get'
+      })
+      .done(function(){})
+}
+
+function makeDone(id) {
+  $.ajax({
+        url: '/task/' + id + '/done', type: 'get'
+      })
+      .done(function(){})
+}
+
+function makeTomorrow(id){
+  $.ajax({
+        url: '/task/' + id + '/todo', type: 'get'
       })
       .done(function(){})
 }

@@ -16,7 +16,7 @@
       <a onclick="editTask(<%=task.id%>)" id="edit-task" class="waves-effect waves-yellow btn-flat"><i class="material-icons">edit</i></a>
     </div>
      <div>
-       <a onclick="$('#view-task-<%=task.id%>').remove()" id="new-task" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
+       <a onclick="closeTask(<%=task.id%>)" class="waves-effect waves-yellow btn-flat"><i class="material-icons">close</i></a>
      </div>
   </div>
 <div id='task-data' style="padding: 0px 32px 32px 32px; ">
@@ -33,11 +33,9 @@
 
 <script>
 
+
+
     $('select').formSelect();
-
-  function createTask(){
-
-    }
 
 
 </script>

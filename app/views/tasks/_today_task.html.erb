@@ -4,21 +4,22 @@ border-radius: 16px; padding: 24px; margin-bottom: 12px;">
     <div style="font-size: 14px; color: rgba(134, 134, 134, 1);">
       <%= task.project.title %>
     </div>
-
+<%if task.today? %>
     <div style="font-weight: 600; font-size: 18px; margin-top: 18px;">
       <%= task.title %>
     </div>
-
+<%end%>
     <div style="font-size: 16px; color: rgba(134, 134, 134, 1); margin-top: 8px;">
       <%= task.description %>
     </div>
 
+<%if task.today? %>
     <div style="margin-top: 24px; ">
       <button onclick="taskUpdateTypeToday(<%=task.id%>, 'done')" style="color: black;" class="btn waves-effect waves-dark yellow" type="submit" name="action">Готово
       </button>
        <a onclick="taskUpdateTypeToday(<%=task.id%>, 'todo')" class="waves-effect waves-dark btn-flat">Отложить на завтра</a>
     </div>
-
+<% end %>
 
 
 </div>

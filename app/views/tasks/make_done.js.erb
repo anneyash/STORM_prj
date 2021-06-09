@@ -2,6 +2,8 @@ $('#task-<%=@task.id%>').remove()
 $('#view-task-<%=@task.id%>').remove()
 $('#done-tasks').prepend("<%=escape_javascript(render 'tasks/task', task: @task)%>")
 
+$('#today-done-tasks').prepend("<%=escape_javascript(render 'tasks/today_task', task: @task)%>")
+
 <% if !@text.nil? %>
     $('body').append('<%=escape_javascript (render 'points/popup', text: @text, points: @points)%>')
 <% end %>
