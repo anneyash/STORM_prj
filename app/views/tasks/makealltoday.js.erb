@@ -1,1 +1,6 @@
 $('#notification-<%=@type%>').remove()
+<% @ids.each do |id| %>
+<%@task = current_user.tasks.find(id)%>
+  $('#task-<%=@task.id%>').remove()
+  $('#today-tasks').prepend("<%=escape_javascript(render 'tasks/task', task: @task)%>")
+<%end%>
